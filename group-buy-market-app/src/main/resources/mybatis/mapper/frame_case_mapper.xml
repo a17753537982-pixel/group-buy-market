@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.bugstack.infrastructure.persistent.dao.Xxx">
+<!-- 1. namespace 必须是你那个 DAO 接口的全路径 -->
+<mapper namespace="cn.bugstack.infrastructure.dao.IGroupBuyActivityDao">
 
-    <resultMap id="CaseMap" type="cn.bugstack.infrastructure.persistent.po.A">
+    <!-- 2. resultMap 负责把数据库下划线字段（activity_id）转成 Java 驼峰字段（activityId） -->
+    <resultMap id="dataMap" type="cn.bugstack.infrastructure.dao.po.GroupBuyActivity">
         <id column="id" property="id"/>
+        <result column="activity_id" property="activityId"/>
+        <result column="source" property="source"/>
+        <result column="channel" property="channel"/>
+        <result column="goods_id" property="goodsId"/>
+        <result column="discount_id" property="discountId"/>
+        <result column="group_type" property="groupType"/>
+        <result column="take_limit_count" property="takeLimitCount"/>
+        <result column="target" property="target"/>
+        <result column="valid_time" property="validTime"/>
+        <result column="status" property="status"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="tag_id" property="tagId"/>
+        <result column="tag_scope" property="tagScope"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
+
     </resultMap>
 
-    <insert id="insert" parameterType="cn.bugstack.infrastructure.persistent.po.A">
-        INSERT INTO table(a,b,c) VALUES(#{a}, #{b}, #{c})
-    </insert>
-
-    <update id="update" parameterType="cn.bugstack.infrastructure.persistent.po.A">
-        UPDATE table SET a = #{a} WHERE b = #{b}
-    </update>
-
-    <select id="queryEmployeeByEmployNumber" parameterType="java.lang.String" resultMap="CaseMap">
-        SELECT a, b, c
-        FROM table
-        WHERE a = #{a}
+    <!-- 3. id 必须和接口里的方法名一模一样 -->
+    <select id="queryGroupBuyActivityList" resultMap="dataMap">
+        SELECT activity_id, source, channel, goods_id, discount_id, group_type, take_limit_count,
+               target, valid_time, status, start_time, end_time, tag_id, tag_scope, create_time, update_time
+        FROM group_buy_activity
     </select>
 
 </mapper>
+
