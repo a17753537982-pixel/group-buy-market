@@ -16,12 +16,10 @@ public class QueryGroupBuyActivityDiscountVOThreadTask implements Callable<Group
      * 来源
      */
     private final String source;
-
     /**
      * 渠道
      */
     private final String channel;
-
     /**
      * 活动仓储
      */

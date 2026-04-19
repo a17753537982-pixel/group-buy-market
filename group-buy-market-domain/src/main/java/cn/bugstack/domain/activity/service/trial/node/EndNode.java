@@ -3,6 +3,8 @@ package cn.bugstack.domain.activity.service.trial.node;
 import cn.bugstack.domain.activity.model.entity.MarketProductEntity;
 import cn.bugstack.domain.activity.model.entity.TrialBalanceEntity;
 
+import cn.bugstack.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
+import cn.bugstack.domain.activity.model.valobj.SkuVO;
 import cn.bugstack.domain.activity.service.trial.AbstractGroupBuyMarketSupport;
 import cn.bugstack.domain.activity.service.trial.factory.DefaultActivityStrategyFactory;
 import cn.bugstack.types.design.framework.tree.StrategyHandler;
@@ -23,12 +25,35 @@ public class EndNode extends AbstractGroupBuyMarketSupport<MarketProductEntity, 
 
 
     @Override
-    public TrialBalanceEntity apply(MarketProductEntity requestParameter, DefaultActivityStrategyFactory.DynamicContext dynamicContext) throws Exception {
+    public StrategyHandler<MarketProductEntity, DefaultActivityStrategyFactory.DynamicContext, TrialBalanceEntity> get(MarketProductEntity requestParameter, DefaultActivityStrategyFactory.DynamicContext dynamicContext) {
         return null;
     }
 
+    /**
+     * 业务逻辑受理
+     *
+     * @param requestParameter
+     * @param dynamicContext
+     * @return
+     * @throws Exception
+     */
     @Override
-    public StrategyHandler<MarketProductEntity, DefaultActivityStrategyFactory.DynamicContext, TrialBalanceEntity> get(MarketProductEntity requestParameter, DefaultActivityStrategyFactory.DynamicContext dynamicContext) {
-        return null;
+    public TrialBalanceEntity doApply(MarketProductEntity requestParameter, DefaultActivityStrategyFactory.DynamicContext dynamicContext) throws Exception {
+        log.info("拼团商品查询试算服务-EndNode userId:{} requestParameter:{}", requestParameter.getUserId(), JSON.toJSONString(requestParameter));
+
+        GroupBuyActivityDiscountVO groupBuyActivityDiscountVO = dynamicContext.getGroupBuyActivityDiscountVO();
+        SkuVO skuVO=dynamicContext.getSkuVO();
+        BigDecimal deductionPrice = dynamicContext.getDeductionPrice();
+        return TrialBalanceEntity.builder()
+                  .goodsId(skuVO.getGoodsId())
+                  .goodsName(skuVO.getGoodsName())
+                  .originalPrice(skuVO.getOriginalPrice())
+                  .deductionPrice(deductionPrice)
+                  .targetCount(groupBuyActivityDiscountVO.getTarget())
+                  .startTime(groupBuyActivityDiscountVO.getStartTime())
+                  .endTime(groupBuyActivityDiscountVO.getEndTime())
+                  .isVisible(false)
+                  .isEnable(false)
+                  .build();
     }
 }

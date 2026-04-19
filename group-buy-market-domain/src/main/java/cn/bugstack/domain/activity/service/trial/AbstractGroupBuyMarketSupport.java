@@ -1,6 +1,7 @@
 package cn.bugstack.domain.activity.service.trial;
 
 
+import cn.bugstack.domain.activity.adapter.repository.IActivityRepository;
 import cn.bugstack.domain.activity.model.entity.MarketProductEntity;
 import cn.bugstack.domain.activity.model.entity.TrialBalanceEntity;
 import cn.bugstack.domain.activity.service.trial.factory.DefaultActivityStrategyFactory;
@@ -19,6 +20,10 @@ import java.util.concurrent.TimeoutException;
  */
 public abstract class AbstractGroupBuyMarketSupport<MarketProductEntity, DynamicContext, TrialBalanceEntity> extends AbstractMultiThreadStateRouter<MarketProductEntity, DynamicContext, TrialBalanceEntity> {
 
+    @Resource
+    protected IActivityRepository repository;
+
+    protected long timeout=500;
 
     @Override
     protected void multiThread(MarketProductEntity requestParameter, DynamicContext dynamicContext) {

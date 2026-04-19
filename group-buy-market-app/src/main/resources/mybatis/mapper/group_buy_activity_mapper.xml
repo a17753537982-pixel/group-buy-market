@@ -32,5 +32,15 @@
         FROM group_buy_activity
     </select>
 
+    <select id="queryValidGroupBuyActivity" parameterType="cn.bugstack.infrastructure.dao.po.GroupBuyActivity" resultMap="dataMap">
+        SELECT activity_id,source,channel,goods_id,
+        discount_id,group_type,take_limit_count,target,valid_time,status,
+        start_time,end_time,tag_id,tag_scope
+        FROM group_buy_activity
+        where source=#{source} and channel=#{channel}
+        order by id desc
+        limit 1
+    </select>
+
 </mapper>
 

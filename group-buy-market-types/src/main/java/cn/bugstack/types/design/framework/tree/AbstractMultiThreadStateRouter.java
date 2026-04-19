@@ -21,5 +21,5 @@ public abstract class AbstractMultiThreadStateRouter<T,D,R> extends AbstractStra
      * @return
      * @throws Exception
      */
-    public abstract R doApply(T requestParameter, D dynamicContext) throws Exception;
+    protected abstract R doApply(T requestParameter, D dynamicContext) throws Exception;
 }
