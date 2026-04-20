@@ -26,20 +26,28 @@ public class QueryGroupBuyActivityDiscountVOThreadTask implements Callable<Group
      * 商品Id
      */
     private final String goodsId;
+
+    /**
+     * 活动id
+     */
+    private Long activityId;
     /**
      * 活动仓储
      */
     private final IActivityRepository activityRepository;//仓储接口是构造传入的
 
-    public QueryGroupBuyActivityDiscountVOThreadTask(String source, String channel, String goodsId, IActivityRepository activityRepository) {
+    public QueryGroupBuyActivityDiscountVOThreadTask(String source, String channel, String goodsId, Long activityId, IActivityRepository activityRepository) {
         this.source = source;
         this.channel = channel;
         this.goodsId = goodsId;
+        this.activityId = activityId;
         this.activityRepository = activityRepository;
     }
 
     @Override
     public GroupBuyActivityDiscountVO call() throws Exception {
+        if(activityId !=null)  return activityRepository.queryGroupBuyActivityDiscountVO(activityId);
+
         SCSkuActivityVO scSkuActivityVO = activityRepository.querySCSkuActivityBySCGoodsId(source, channel, goodsId);
         if(null==scSkuActivityVO) return null;
         return activityRepository.queryGroupBuyActivityDiscountVO(scSkuActivityVO.getActivityId());

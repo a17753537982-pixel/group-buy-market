@@ -2,7 +2,7 @@ package cn.bugstack.test.domain.activity;
 
 import cn.bugstack.domain.activity.model.entity.MarketProductEntity;
 import cn.bugstack.domain.activity.model.entity.TrialBalanceEntity;
-import cn.bugstack.domain.activity.service.IIndexGroupByMarketService;
+import cn.bugstack.domain.activity.service.IIndexGroupBuyMarketService;
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 public class IIndexGroupBuyMarketServiceTest {
 
     @Resource
-    private IIndexGroupByMarketService indexGroupByMarketService;
+    private IIndexGroupBuyMarketService indexGroupByMarketService;
 
     @Test
     public void test_indexMarketTrial() throws Exception {

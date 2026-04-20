@@ -19,9 +19,9 @@
             source,channel,activity_id,goods_id
         from group_buy_market.sc_sku_activity
         where
-            source=#{source}
+            goods_id=#{goodsId}
           AND channel = #{channel}
-          AND goods_id = #{goodsId}
+          AND source = #{source}
     </select>
 
 </mapper>

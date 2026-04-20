@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-public class IndexGroupByMarketServiceImpl implements IIndexGroupByMarketService{
+public class IndexGroupBuyMarketServiceImpl implements IIndexGroupBuyMarketService {
 
     @Resource
     DefaultActivityStrategyFactory defaultActivityStrategyFactory;
