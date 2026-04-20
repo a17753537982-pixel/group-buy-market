@@ -1,11 +1,15 @@
 package cn.bugstack.domain.activity.model.valobj;
 
+import cn.bugstack.types.common.Constants;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
@@ -78,6 +82,21 @@ public class GroupBuyActivityDiscountVO {
      * 人群标签规则范围
      */
     private String tagScope;
+
+    public boolean isVisible()
+    {
+        if(StringUtils.isBlank(this.tagScope)) return true;
+        String[] split = this.tagScope.split(Constants.SPLIT);
+        return !Arrays.asList(split).contains("1");
+    }
+
+    public boolean isEnable()
+    {
+        if(StringUtils.isBlank(this.tagScope)) return true;
+        String[] split=this.tagScope.split(Constants.SPLIT);
+        return !Arrays.asList(split).contains("2");
+    }
+
 
     @Getter
     @Builder

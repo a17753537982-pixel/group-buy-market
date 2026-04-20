@@ -13,6 +13,10 @@ import cn.bugstack.infrastructure.dao.po.GroupBuyActivity;
 import cn.bugstack.infrastructure.dao.po.GroupBuyDiscount;
 import cn.bugstack.infrastructure.dao.po.SCSkuActivity;
 import cn.bugstack.infrastructure.dao.po.Sku;
+import cn.bugstack.infrastructure.dcc.DCCService;
+import cn.bugstack.infrastructure.redis.IRedisService;
+import org.redisson.api.RBitSet;
+import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -31,6 +35,12 @@ public class ActivityRepository implements IActivityRepository {
     private ISCSkuActivityDao scSkuActivityDao;
     @Resource
     private ISkuDao skuDao;
+
+    @Resource
+    private IRedisService redisService;
+
+    @Resource
+    private DCCService dccService;
 
     @Override
     public GroupBuyActivityDiscountVO queryGroupBuyActivityDiscountVO(Long activityId) {
@@ -95,5 +105,22 @@ public class ActivityRepository implements IActivityRepository {
                 .goodsId(scSkuActivity.getGoodsId())
                 .build();
     }
+
+    @Override
+    public boolean isTagCustomer(String tagId, String userId) {
+        RBitSet bitSet = redisService.getBitSet(tagId);
+        return bitSet.get(redisService.getIndexFromUserId(userId));
+    }
+
+    @Override
+    public boolean cutRange(String userId) {
+        return dccService.isCutRange(userId);
+    }
+
+    @Override
+    public boolean isDowngradeSwitch() {
+        return dccService.isDowngradeSwitch();
+    }
+
 
 }

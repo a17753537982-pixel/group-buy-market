@@ -19,4 +19,9 @@ public interface IActivityRepository {
     //scgoods和活动Id关系表
     SCSkuActivityVO querySCSkuActivityBySCGoodsId(String source, String channel, String goodsId);
 
+    boolean isTagCustomer(String tagId, String userId);
+
+    boolean cutRange(String userId);
+
+    boolean isDowngradeSwitch();
 }
