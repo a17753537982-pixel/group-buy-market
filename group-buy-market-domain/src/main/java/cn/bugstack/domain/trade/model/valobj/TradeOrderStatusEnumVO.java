@@ -20,7 +20,6 @@ public enum TradeOrderStatusEnumVO {
     private Integer code;
     private String info;
 
-    //数据值转换成枚举值
     public static TradeOrderStatusEnumVO valueOf(Integer code) {
         switch (code) {
             case 0:

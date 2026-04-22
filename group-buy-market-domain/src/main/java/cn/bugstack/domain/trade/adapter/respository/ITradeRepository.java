@@ -1,6 +1,8 @@
 package cn.bugstack.domain.trade.adapter.respository;
 
 import cn.bugstack.domain.trade.model.aggregate.GroupBuyOrderAggregate;
+import cn.bugstack.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
+import cn.bugstack.domain.trade.model.entity.GroupBuyTeamEntity;
 import cn.bugstack.domain.trade.model.entity.GroupByActivityEntity;
 import cn.bugstack.domain.trade.model.entity.MarketPayOrderEntity;
 import cn.bugstack.domain.trade.model.valobj.GroupBuyProgressVO;
@@ -15,6 +17,10 @@ public interface ITradeRepository {
     Integer queryOrderCountByActivityId(Long activityId, String userId);
 
     GroupByActivityEntity queryGroupByActivityByActivityId(Long activityId);
+
+    GroupBuyTeamEntity queryGroupBuyTeamByTeamId(String teamId);
+
+    void settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate);
 
     //操作数据库是response 操作端口的是port
 

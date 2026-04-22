@@ -26,4 +26,7 @@ public class MarketPayOrderEntity {
     /** 交易订单状态枚举 */
     private TradeOrderStatusEnumVO tradeOrderStatusEnumVO;
 
+    /**拼团组队Id**/
+    private String teamId;
+
 }

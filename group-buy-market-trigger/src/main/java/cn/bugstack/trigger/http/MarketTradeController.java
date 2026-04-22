@@ -13,7 +13,7 @@ import cn.bugstack.domain.trade.model.entity.PayActivityEntity;
 import cn.bugstack.domain.trade.model.entity.PayDiscountEntity;
 import cn.bugstack.domain.trade.model.entity.UserEntity;
 import cn.bugstack.domain.trade.model.valobj.GroupBuyProgressVO;
-import cn.bugstack.domain.trade.service.ITradeOrderService;
+import cn.bugstack.domain.trade.service.ITradeLockOrderService;
 import cn.bugstack.types.enums.ResponseCode;
 import cn.bugstack.types.exception.AppException;
 import com.alibaba.fastjson.JSON;
@@ -35,7 +35,7 @@ public class MarketTradeController implements IMarketTradeService {
     //串联两个Service
 
     @Resource
-    private ITradeOrderService tradeOrderService;
+    private ITradeLockOrderService tradeOrderService;
 
     @Resource
     private IIndexGroupBuyMarketService indexGroupByMarketService;

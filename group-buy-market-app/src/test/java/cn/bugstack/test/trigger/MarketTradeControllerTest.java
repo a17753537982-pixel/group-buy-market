@@ -4,7 +4,6 @@ import cn.bugstack.api.dto.LockMarketPayOrderRequestDTO;
 import cn.bugstack.api.dto.LockMarketPayOrderResponseDTO;
 import cn.bugstack.api.response.IMarketTradeService;
 import cn.bugstack.api.response.Response;
-import cn.bugstack.domain.trade.service.ITradeOrderService;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -31,8 +30,8 @@ public class MarketTradeControllerTest {
     @Test
     public void test_lockMarketPayOrder() {
         LockMarketPayOrderRequestDTO lockMarketPayOrderRequestDTO = new LockMarketPayOrderRequestDTO();
-        lockMarketPayOrderRequestDTO.setUserId("liuJiLong");
-        lockMarketPayOrderRequestDTO.setTeamId("ChbyqcQn");
+        lockMarketPayOrderRequestDTO.setUserId("xfg03");
+        lockMarketPayOrderRequestDTO.setTeamId("frfdQufn");
         lockMarketPayOrderRequestDTO.setActivityId(100123L);
         lockMarketPayOrderRequestDTO.setGoodsId("9890001");
         lockMarketPayOrderRequestDTO.setSource("s01");

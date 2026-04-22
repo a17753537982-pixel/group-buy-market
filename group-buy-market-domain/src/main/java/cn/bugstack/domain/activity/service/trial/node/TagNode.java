@@ -6,6 +6,7 @@ import cn.bugstack.domain.activity.model.valobj.GroupBuyActivityDiscountVO;
 import cn.bugstack.domain.activity.service.trial.AbstractGroupBuyMarketSupport;
 import cn.bugstack.domain.activity.service.trial.factory.DefaultActivityStrategyFactory;
 import cn.bugstack.types.design.framework.tree.StrategyHandler;
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,7 @@ public class TagNode extends AbstractGroupBuyMarketSupport<MarketProductEntity, 
      */
     @Override
     protected TrialBalanceEntity doApply(MarketProductEntity requestParameter, DefaultActivityStrategyFactory.DynamicContext dynamicContext) throws Exception {
+        log.info("拼团商品查询试算服务-TagNode userId:{} requestParameter:{}", requestParameter.getUserId(), JSON.toJSONString(requestParameter));
         //获取营销配置 判断可见性和可参与配置
         GroupBuyActivityDiscountVO groupBuyActivityDiscountVO = dynamicContext.getGroupBuyActivityDiscountVO();
         boolean enable = groupBuyActivityDiscountVO.isEnable();

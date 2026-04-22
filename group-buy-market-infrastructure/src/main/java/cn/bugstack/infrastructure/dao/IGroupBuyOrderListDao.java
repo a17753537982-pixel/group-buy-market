@@ -3,6 +3,8 @@ package cn.bugstack.infrastructure.dao;
 import cn.bugstack.infrastructure.dao.po.GroupBuyOrderList;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface IGroupBuyOrderListDao {
 
@@ -15,4 +17,10 @@ public interface IGroupBuyOrderListDao {
 
     //查询参与活动的次数
     Integer queryOrderCountByActivityId(GroupBuyOrderList groupBuyOrderListReq);
+
+    //更新订单状态改为2Complete
+    Integer updateOrderStatus2COMPLETE(GroupBuyOrderList groupBuyOrderListReq);
+
+    //根据teamId查询TradeNoList，写入回调表里
+    List<String> queryGroupBuyCompleteOrderOutTradeNoListByTeamId(String teamId);
 }

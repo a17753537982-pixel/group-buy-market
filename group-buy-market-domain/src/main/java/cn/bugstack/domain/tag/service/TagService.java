@@ -26,6 +26,17 @@ public class TagService implements ITagService{
         List<String> userIdList=new ArrayList<String>(){{
             add("WangTian");
             add("liuJiLong");
+            add ("xiaofuge");
+            add ("liergou");
+            add ("xfg01");
+            add ("xfg02");
+            add ("xfg03");
+            add ("xfg04");
+            add ("xfg05");
+            add ("xfg06");
+            add ("xfg07");
+            add ("xfg08");
+            add ("xfg09");
         }};
 
         //加载进用户人群表
@@ -36,5 +47,6 @@ public class TagService implements ITagService{
 
         //更新人群标签统计量
         tagRepository.addCrowdTagsStatistics(tagId,userIdList.size());
+        log.info("增加人群标签完成");
     }
 }

@@ -6,15 +6,32 @@ import cn.bugstack.domain.trade.model.entity.PayDiscountEntity;
 import cn.bugstack.domain.trade.model.entity.UserEntity;
 import cn.bugstack.domain.trade.model.valobj.GroupBuyProgressVO;
 
-public interface ITradeOrderService {
+public interface ITradeLockOrderService {
 
-    //查询未支付营销订单
+
+    /**
+     * 查询未支付营销订单
+     * @param userId
+     * @param outTradeNo
+     * @return
+     */
     MarketPayOrderEntity queryNoPayOrderEntityByOutTradeNo(String userId, String outTradeNo);
 
-    //查询拼单进度
+    /**
+     * 查询拼单进度
+     * @param teamId
+     * @return
+     */
     public GroupBuyProgressVO queryGroupBuyProgress(String teamId);
 
-    //锁定营销优惠支付订单----用户实体---支付活动实体----折扣实体
+    /**
+     * 锁定营销优惠支付订单----用户实体---支付活动实体----折扣实体
+     * @param userEntity
+     * @param payActivityEntity
+     * @param payDiscountEntity
+     * @return
+     * @throws Exception
+     */
     public MarketPayOrderEntity lockMarketPayOrder(UserEntity userEntity, PayActivityEntity payActivityEntity, PayDiscountEntity payDiscountEntity) throws Exception;
 
 }

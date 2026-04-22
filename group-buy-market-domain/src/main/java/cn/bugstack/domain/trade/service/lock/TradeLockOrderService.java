@@ -1,10 +1,11 @@
-package cn.bugstack.domain.trade.service;
+package cn.bugstack.domain.trade.service.lock;
 
 import cn.bugstack.domain.trade.adapter.respository.ITradeRepository;
 import cn.bugstack.domain.trade.model.aggregate.GroupBuyOrderAggregate;
 import cn.bugstack.domain.trade.model.entity.*;
 import cn.bugstack.domain.trade.model.valobj.GroupBuyProgressVO;
-import cn.bugstack.domain.trade.service.factory.TradeRuleFilterFactory;
+import cn.bugstack.domain.trade.service.ITradeLockOrderService;
+import cn.bugstack.domain.trade.service.lock.factory.TradeRuleFilterFactory;
 import cn.bugstack.types.design.framework.link.model2.chain.BusinessLinkedList;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Service
-public class TradeOrderService implements ITradeOrderService{
+public class TradeLockOrderService implements ITradeLockOrderService {
 
     @Resource
     private ITradeRepository repository;
@@ -41,7 +42,6 @@ public class TradeOrderService implements ITradeOrderService{
 
         TradeRuleCommandEntity tradeRuleCommandEntity=new TradeRuleCommandEntity(userEntity.getUserId(), payActivityEntity.getActivityId());
         TradeRuleFilterBackEntity tradeRuleFilterBackEntity = tradeOrderFilter.apply(tradeRuleCommandEntity, new TradeRuleFilterFactory.DynamicContext());
-
 
 
         GroupBuyOrderAggregate groupBuyOrderAggregate = GroupBuyOrderAggregate.builder()
