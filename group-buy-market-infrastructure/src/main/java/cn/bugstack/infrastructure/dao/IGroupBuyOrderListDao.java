@@ -11,4 +11,8 @@ public interface IGroupBuyOrderListDao {
 
     //根据外部交易交易单号查询订单
     GroupBuyOrderList queryGroupBuyOrderRecordOutTradeNo(GroupBuyOrderList groupBuyOrderListReq);
+
+
+    //查询参与活动的次数
+    Integer queryOrderCountByActivityId(GroupBuyOrderList groupBuyOrderListReq);
 }

@@ -109,6 +109,7 @@ public class ActivityRepository implements IActivityRepository {
     @Override
     public boolean isTagCustomer(String tagId, String userId) {
         RBitSet bitSet = redisService.getBitSet(tagId);
+        if(!bitSet.isExists()) return true;
         return bitSet.get(redisService.getIndexFromUserId(userId));
     }
 

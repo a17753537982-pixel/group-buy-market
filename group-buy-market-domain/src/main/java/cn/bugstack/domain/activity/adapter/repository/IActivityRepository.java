@@ -24,4 +24,5 @@ public interface IActivityRepository {
     boolean cutRange(String userId);
 
     boolean isDowngradeSwitch();
+
 }
