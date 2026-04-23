@@ -17,6 +17,7 @@ public interface IGroupBuyOrderDao {
 
     //查询拼团进度
     GroupBuyOrder queryGroupBuyProgress(String teamId);
+
     GroupBuyOrder queryGroupBuyTeamByTeamId(String teamId);
 
     //完成数量+1

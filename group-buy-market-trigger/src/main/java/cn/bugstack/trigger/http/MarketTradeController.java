@@ -1,5 +1,4 @@
 package cn.bugstack.trigger.http;
-
 import cn.bugstack.api.dto.LockMarketPayOrderRequestDTO;
 import cn.bugstack.api.dto.LockMarketPayOrderResponseDTO;
 import cn.bugstack.api.response.IMarketTradeService;

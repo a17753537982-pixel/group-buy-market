@@ -1,9 +1,9 @@
-package cn.bugstack.domain.trade.adapter.respository;
+package cn.bugstack.domain.trade.adapter.repository;
 
 import cn.bugstack.domain.trade.model.aggregate.GroupBuyOrderAggregate;
 import cn.bugstack.domain.trade.model.aggregate.GroupBuyTeamSettlementAggregate;
 import cn.bugstack.domain.trade.model.entity.GroupBuyTeamEntity;
-import cn.bugstack.domain.trade.model.entity.GroupByActivityEntity;
+import cn.bugstack.domain.trade.model.entity.GroupBuyActivityEntity;
 import cn.bugstack.domain.trade.model.entity.MarketPayOrderEntity;
 import cn.bugstack.domain.trade.model.valobj.GroupBuyProgressVO;
 
@@ -16,11 +16,13 @@ public interface ITradeRepository {
 
     Integer queryOrderCountByActivityId(Long activityId, String userId);
 
-    GroupByActivityEntity queryGroupByActivityByActivityId(Long activityId);
+    GroupBuyActivityEntity queryGroupByActivityByActivityId(Long activityId);
 
     GroupBuyTeamEntity queryGroupBuyTeamByTeamId(String teamId);
 
     void settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate);
+
+    boolean isSCBlackIntercept(String source, String channel);
 
     //操作数据库是response 操作端口的是port
 

@@ -1,6 +1,6 @@
 package cn.bugstack.domain.trade.service.lock;
 
-import cn.bugstack.domain.trade.adapter.respository.ITradeRepository;
+import cn.bugstack.domain.trade.adapter.repository.ITradeRepository;
 import cn.bugstack.domain.trade.model.aggregate.GroupBuyOrderAggregate;
 import cn.bugstack.domain.trade.model.entity.*;
 import cn.bugstack.domain.trade.model.valobj.GroupBuyProgressVO;
@@ -21,7 +21,7 @@ public class TradeLockOrderService implements ITradeLockOrderService {
 
 
     @Resource
-    private BusinessLinkedList<TradeRuleCommandEntity, TradeRuleFilterFactory.DynamicContext, TradeRuleFilterBackEntity> tradeOrderFilter;
+    private BusinessLinkedList<TradeLockRuleCommandEntity, TradeRuleFilterFactory.DynamicContext, TradeLockRuleFilterBackEntity> tradeOrderFilter;
 
     @Override
     public MarketPayOrderEntity queryNoPayOrderEntityByOutTradeNo(String userId, String outTradeNo) {
@@ -40,15 +40,15 @@ public class TradeLockOrderService implements ITradeLockOrderService {
 
         log.info("拼团交易，锁定营销优惠订单:{},activityId{} goodsId{}",userEntity.getUserId(),payActivityEntity.getActivityId(),payDiscountEntity.getGoodsId());
 
-        TradeRuleCommandEntity tradeRuleCommandEntity=new TradeRuleCommandEntity(userEntity.getUserId(), payActivityEntity.getActivityId());
-        TradeRuleFilterBackEntity tradeRuleFilterBackEntity = tradeOrderFilter.apply(tradeRuleCommandEntity, new TradeRuleFilterFactory.DynamicContext());
+        TradeLockRuleCommandEntity tradeLockRuleCommandEntity =new TradeLockRuleCommandEntity(userEntity.getUserId(), payActivityEntity.getActivityId());
+        TradeLockRuleFilterBackEntity tradeLockRuleFilterBackEntity = tradeOrderFilter.apply(tradeLockRuleCommandEntity, new TradeRuleFilterFactory.DynamicContext());
 
 
         GroupBuyOrderAggregate groupBuyOrderAggregate = GroupBuyOrderAggregate.builder()
                 .userEntity(userEntity)
                 .payDiscountEntity(payDiscountEntity)
                 .payActivityEntity(payActivityEntity)
-                .userTakeOrderCount(tradeRuleFilterBackEntity.getUserTakeOrderCount())
+                .userTakeOrderCount(tradeLockRuleFilterBackEntity.getUserTakeOrderCount())
                 .build();
         return repository.lockMarketPayOrder(groupBuyOrderAggregate);
     }

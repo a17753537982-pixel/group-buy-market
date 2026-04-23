@@ -1,8 +1,8 @@
 package cn.bugstack.domain.trade.service.lock.factory;
 
-import cn.bugstack.domain.trade.model.entity.GroupByActivityEntity;
-import cn.bugstack.domain.trade.model.entity.TradeRuleCommandEntity;
-import cn.bugstack.domain.trade.model.entity.TradeRuleFilterBackEntity;
+import cn.bugstack.domain.trade.model.entity.GroupBuyActivityEntity;
+import cn.bugstack.domain.trade.model.entity.TradeLockRuleCommandEntity;
+import cn.bugstack.domain.trade.model.entity.TradeLockRuleFilterBackEntity;
 import cn.bugstack.domain.trade.service.lock.filter.ActivityUsabeRuleFilter;
 import cn.bugstack.domain.trade.service.lock.filter.UserTakeLimitRuleFilter;
 import cn.bugstack.types.design.framework.link.model2.LinkArmory;
@@ -20,10 +20,10 @@ import org.springframework.stereotype.Service;
 public class TradeRuleFilterFactory {
 
     @Bean("tradeRuleFilter")
-    public BusinessLinkedList<TradeRuleCommandEntity,DynamicContext, TradeRuleFilterBackEntity>
+    public BusinessLinkedList<TradeLockRuleCommandEntity,DynamicContext, TradeLockRuleFilterBackEntity>
     tradeRuleFilter(ActivityUsabeRuleFilter activityUsabeRuleFilter, UserTakeLimitRuleFilter userTakeLimitRuleFilter)
     {
-        LinkArmory<TradeRuleCommandEntity,DynamicContext, TradeRuleFilterBackEntity> linkArmory
+        LinkArmory<TradeLockRuleCommandEntity,DynamicContext, TradeLockRuleFilterBackEntity> linkArmory
                 =new LinkArmory<>("交易规则过滤链条",activityUsabeRuleFilter,userTakeLimitRuleFilter);
 
         return linkArmory.getLogicLink();
@@ -35,6 +35,6 @@ public class TradeRuleFilterFactory {
     @NoArgsConstructor
     public static class DynamicContext
     {
-        GroupByActivityEntity groupByActivity;
+        GroupBuyActivityEntity groupByActivity;
     }
 }

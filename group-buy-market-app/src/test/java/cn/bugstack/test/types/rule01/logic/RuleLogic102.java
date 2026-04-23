@@ -13,7 +13,6 @@ public class RuleLogic102 extends AbstractLogicLink<String, Rule02TradeRuleFacto
     public String apply(String requestParameter, Rule02TradeRuleFactory.DynamicContext dynamicContext) throws Exception {
 
         log.info("link model01 RuleLogic102");
-        log.info(dynamicContext.getAge());
 
         return "link model01 单实例链";
     }

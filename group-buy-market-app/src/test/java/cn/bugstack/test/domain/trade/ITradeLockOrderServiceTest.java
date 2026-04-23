@@ -72,6 +72,7 @@ public class ITradeLockOrderServiceTest {
                         .startTime(groupBuyActivityDiscountVO.getStartTime())
                         .endTime(groupBuyActivityDiscountVO.getEndTime())
                         .targetCount(groupBuyActivityDiscountVO.getTarget())
+                        .validTime(groupBuyActivityDiscountVO.getValidTime())
                         .build(),
                 PayDiscountEntity.builder()
                         .source(source)
@@ -80,6 +81,7 @@ public class ITradeLockOrderServiceTest {
                         .goodsName(trialBalanceEntity.getGoodsName())
                         .originalPrice(trialBalanceEntity.getOriginalPrice())
                         .deductionPrice(trialBalanceEntity.getDeductionPrice())
+                        .payPrice(trialBalanceEntity.getPayPrice())
                         .outTradeNo(outTradeNo)
                         .build());
 

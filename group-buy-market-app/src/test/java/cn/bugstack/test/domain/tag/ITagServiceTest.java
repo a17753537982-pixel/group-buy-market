@@ -35,8 +35,14 @@ public class ITagServiceTest {
     public void test_get_tag_bitmap() {
         RBitSet bitSet = redisService.getBitSet("RQ_KJHKL98UU78H66554GFDV");
         // 是否存在
-        log.info("xfg02 存在，预期结果为 true，测试结果:{}", bitSet.get(redisService.getIndexFromUserId("xfg02")));
-        log.info("LiuJiLonge 不存在，预期结果为 false，测试结果:{}", bitSet.get(redisService.getIndexFromUserId("LiuJiLonge")));
+        log.info("xiaofuge 存在，预期结果为 true，测试结果:{}", bitSet.get(redisService.getIndexFromUserId("xiaofuge")));
+        log.info("gudebai 不存在，预期结果为 false，测试结果:{}", bitSet.get(redisService.getIndexFromUserId("gudebai")));
+    }
+
+    @Test
+    public void test_null_tag_bitmap() {
+        RBitSet bitSet = redisService.getBitSet("null");
+        log.info("测试结果:{}", bitSet.isExists());
     }
 
 }

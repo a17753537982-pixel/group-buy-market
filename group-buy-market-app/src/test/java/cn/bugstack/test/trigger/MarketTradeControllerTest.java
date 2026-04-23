@@ -25,13 +25,13 @@ import javax.annotation.Resource;
 public class MarketTradeControllerTest {
 
     @Resource
-    private IMarketTradeService marketTradeService;
+    private cn.bugstack.api.response.IMarketTradeService marketTradeService;
 
     @Test
     public void test_lockMarketPayOrder() {
         LockMarketPayOrderRequestDTO lockMarketPayOrderRequestDTO = new LockMarketPayOrderRequestDTO();
-        lockMarketPayOrderRequestDTO.setUserId("xfg03");
-        lockMarketPayOrderRequestDTO.setTeamId("frfdQufn");
+        lockMarketPayOrderRequestDTO.setUserId("xfg01");
+        lockMarketPayOrderRequestDTO.setTeamId(null);
         lockMarketPayOrderRequestDTO.setActivityId(100123L);
         lockMarketPayOrderRequestDTO.setGoodsId("9890001");
         lockMarketPayOrderRequestDTO.setSource("s01");
@@ -46,8 +46,8 @@ public class MarketTradeControllerTest {
     @Test
     public void test_lockMarketPayOrder_teamId_not_null() {
         LockMarketPayOrderRequestDTO lockMarketPayOrderRequestDTO = new LockMarketPayOrderRequestDTO();
-        lockMarketPayOrderRequestDTO.setUserId("uids3");
-        lockMarketPayOrderRequestDTO.setTeamId("qllKzZrp");
+        lockMarketPayOrderRequestDTO.setUserId("xfg04");
+        lockMarketPayOrderRequestDTO.setTeamId("93125665");
         lockMarketPayOrderRequestDTO.setActivityId(100123L);
         lockMarketPayOrderRequestDTO.setGoodsId("9890001");
         lockMarketPayOrderRequestDTO.setSource("s01");

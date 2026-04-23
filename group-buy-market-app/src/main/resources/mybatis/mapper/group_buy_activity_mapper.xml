@@ -25,9 +25,10 @@
 
     <!-- 3. id 必须和接口里的方法名一模一样 -->
     <select id="queryGroupBuyActivityList" resultMap="dataMap">
-        SELECT activity_id, discount_id, group_type, take_limit_count,
+        SELECT activity_id,activity_name, discount_id, group_type, take_limit_count,
                target, valid_time, status, start_time, end_time, tag_id, tag_scope, create_time, update_time
         FROM group_buy_activity
+
     </select>
 
     <select id="queryValidGroupBuyActivityId" parameterType="java.lang.Long" resultMap="dataMap">

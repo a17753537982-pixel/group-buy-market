@@ -13,7 +13,6 @@ public class RuleLogic101 extends AbstractLogicLink<String, Rule02TradeRuleFacto
     public String apply(String requestParameter, Rule02TradeRuleFactory.DynamicContext dynamicContext) throws Exception {
 
         log.info("link model01 RuleLogic101");
-        dynamicContext.setAge("16");
 
         return next(requestParameter, dynamicContext);
     }

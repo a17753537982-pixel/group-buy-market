@@ -12,7 +12,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GroupByActivityEntity {
+public class GroupBuyActivityEntity {
     /** 活动ID */
     private Long activityId;
     /** 活动名称 */

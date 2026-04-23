@@ -2,6 +2,7 @@ package cn.bugstack.config;
 
 import cn.bugstack.types.annotations.DCCValue;
 import cn.bugstack.types.common.Constants;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
 import org.redisson.api.RBucket;
@@ -19,6 +20,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @Configuration
 public class DCCValueBeanFactory implements BeanPostProcessor {
 

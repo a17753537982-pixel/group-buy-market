@@ -5,5 +5,5 @@ import cn.bugstack.domain.trade.model.entity.TradePaySuccessEntity;
 
 public interface ITradeSettlementOrderService {
 
-    public TradePaySettlementEntity settlementMarketPayOrder(TradePaySuccessEntity tradePaySuccuessEntity);
+    public TradePaySettlementEntity settlementMarketPayOrder(TradePaySuccessEntity tradePaySuccuessEntity) throws Exception;
 }
