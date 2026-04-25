@@ -64,7 +64,7 @@ public class MarketTradeController implements IMarketTradeService {
                         .build();
             }
 
-            //查询消费记录是否已经存在
+            //查询消费记录是否已经存在 存在直接返回 让他去支付
             MarketPayOrderEntity marketPayOrderEntity = tradeOrderService.queryNoPayOrderEntityByOutTradeNo(userId, outTradeNo);
             if (null != marketPayOrderEntity) {
                 LockMarketPayOrderResponseDTO lockMarketPayOrderResponseDTO = LockMarketPayOrderResponseDTO.builder()
@@ -80,6 +80,8 @@ public class MarketTradeController implements IMarketTradeService {
                         .data(lockMarketPayOrderResponseDTO)
                         .build();
             }
+
+
             // 判断拼团锁单是否完成了目标
             if(null!=teamId)
             {
@@ -122,6 +124,7 @@ public class MarketTradeController implements IMarketTradeService {
                             .startTime(groupBuyActivityDiscountVO.getStartTime())
                             .endTime(groupBuyActivityDiscountVO.getEndTime())
                             .targetCount(groupBuyActivityDiscountVO.getTarget())
+                            .validTime(groupBuyActivityDiscountVO.getValidTime())
                             .build(),
                     PayDiscountEntity.builder()
                             .source(source)
@@ -162,12 +165,7 @@ public class MarketTradeController implements IMarketTradeService {
         }
     }
 
-    /**
-     * 营销结算
-     *
-     * @param requestDTO 结算商品信息
-     * @return 结算结果信息
-     */
+    @RequestMapping(value = "settlement_market_pay_order", method = RequestMethod.POST)
     @Override
     public Response<SettlementMarketPayOrderResponseDTO> settlementMarketPayOrder(@RequestBody SettlementMarketPayOrderRequestDTO requestDTO) {
         try {
