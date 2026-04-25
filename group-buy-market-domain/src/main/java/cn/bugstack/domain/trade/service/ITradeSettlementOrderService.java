@@ -7,7 +7,14 @@ import java.util.Map;
 
 public interface ITradeSettlementOrderService {
 
-    public TradePaySettlementEntity settlementMarketPayOrder(TradePaySuccessEntity tradePaySuccuessEntity) throws Exception;
+
+    /**
+     * 结算
+     * @param tradePaySuccessEntity
+     * @return
+     * @throws Exception
+     */
+    public TradePaySettlementEntity settlementMarketPayOrder(TradePaySuccessEntity tradePaySuccessEntity) throws Exception;
 
     /**
      * 执行结算通知任务

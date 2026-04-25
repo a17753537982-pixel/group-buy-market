@@ -1,8 +1,8 @@
 package cn.bugstack.test.trigger;
 
+import cn.bugstack.api.IMarketTradeService;
 import cn.bugstack.api.dto.LockMarketPayOrderRequestDTO;
 import cn.bugstack.api.dto.LockMarketPayOrderResponseDTO;
-import cn.bugstack.api.response.IMarketTradeService;
 import cn.bugstack.api.response.Response;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ import javax.annotation.Resource;
 public class MarketTradeControllerTest {
 
     @Resource
-    private cn.bugstack.api.response.IMarketTradeService marketTradeService;
+    private IMarketTradeService marketTradeService;
 
     @Test
     public void test_lockMarketPayOrder() {
