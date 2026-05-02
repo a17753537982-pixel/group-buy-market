@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TradeLockRuleFilterBackEntity {
     public Integer userTakeOrderCount;
+    public String recoveryTeamStockKey;
 }

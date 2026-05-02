@@ -23,7 +23,7 @@ public interface ITradeRepository {
 
     GroupBuyTeamEntity queryGroupBuyTeamByTeamId(String teamId);
 
-    void settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate);
+    NotifyTaskEntity settlementMarketPayOrder(GroupBuyTeamSettlementAggregate groupBuyTeamSettlementAggregate);
 
     boolean isSCBlackIntercept(String source, String channel);
 
@@ -36,6 +36,10 @@ public interface ITradeRepository {
     int updateNotifyTaskStatusError(String teamId);
 
     int updateNotifyTaskStatusRetry(String teamId);
+
+    boolean occupyTeamStock(String teamStockKey, String recoveryTeamStockKey, Integer target, Integer validTime);
+
+    void recoveryTeamStock(String recoveryTeamStockKey, Integer validTime);
 
     //操作数据库是response 操作端口的是port
 

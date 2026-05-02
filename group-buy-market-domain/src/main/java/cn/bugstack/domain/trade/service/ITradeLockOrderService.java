@@ -14,6 +14,8 @@ public interface ITradeLockOrderService {
      * @param userId
      * @param outTradeNo
      * @return
+     *
+     *
      */
     MarketPayOrderEntity queryNoPayOrderEntityByOutTradeNo(String userId, String outTradeNo);
 

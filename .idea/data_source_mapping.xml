@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$PROJECT_DIR$/docs/dev-ops/mysql/sql/2-13-group_buy_market.sql" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/docs/dev-ops/mysql/sql/2-15-group_buy_market.sql" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/docs/dev-ops/sql-bak/2-11-group_buy_market.sql" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/docs/dev-ops/sql-bak/2-12-group_buy_market.sql" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/docs/dev-ops/sql-bak/2-14-group_buy_market.sql" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/docs/dev-ops/sql-bak/2-4-group_buy_market.sql" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/docs/dev-ops/sql-bak/2-5-group_buy_market.sql" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/docs/dev-ops/sql-bak/2-6-group_buy_market.sql" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/docs/dev-ops/sql-bak/2-9-group_buy_market.sql" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/crowd_tags_detail_mapper.xml" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/crowd_tags_job_mapper.xml" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/crowd_tags_mapper.xml" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_activity_mapper.xml" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_discount_mapper.xml" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_order_list_mapper.xml" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/group_buy_order_mapper.xml" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/nofify_task_mapper.xml" value="69854410-e15c-447c-9899-f13a245986b1" />
-    <file url="file://$PROJECT_DIR$/group-buy-market-app/src/main/resources/mybatis/mapper/sku_mapper.xml" value="69854410-e15c-447c-9899-f13a245986b1" />
+    <file url="file://$PROJECT_DIR$/docs/dev-ops/mysql/sql/2-17-group_buy_market.sql" value="485b9ff7-cde5-470f-9753-3a6fec34a327" />
   </component>
 </project>

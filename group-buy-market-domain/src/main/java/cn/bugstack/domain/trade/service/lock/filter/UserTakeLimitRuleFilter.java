@@ -30,6 +30,8 @@ public class UserTakeLimitRuleFilter implements ILogicHandler<TradeLockRuleComma
         {
             throw new AppException(ResponseCode.E0103);
         }
-        return TradeLockRuleFilterBackEntity.builder().userTakeOrderCount(count).build();
+
+        dynamicContext.setUserTakeOrderCount(count);
+        return next(requestParameter,dynamicContext);
     }
 }

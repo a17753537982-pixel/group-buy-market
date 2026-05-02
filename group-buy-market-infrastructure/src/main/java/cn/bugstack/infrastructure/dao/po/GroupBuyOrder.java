@@ -42,10 +42,13 @@ public class GroupBuyOrder {
     private Date validStartTime;
     /** 拼团结束时间 - 拼团有效时长 */
     private Date validEndTime;
+    /** 回调类型 HTTP、MQ */
+    private String notifyType;
+    /** 回调通知（HTTP 方式回调，地址不可为空） */
+    private String notifyUrl;
     /** 创建时间 */
     private Date createTime;
     /**更新时间**/
     private Date updateTime;
-    /**回调地址**/
-    private String notifyUrl;
+
 }
