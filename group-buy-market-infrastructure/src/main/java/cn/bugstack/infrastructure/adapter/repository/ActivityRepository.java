@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 
 @Repository
-public class ActivityRepository implements IActivityRepository {
+public class ActivityRepository extends AbstractRepsitory implements IActivityRepository {
 
     @Resource
     private IGroupBuyActivityDao groupBuyActivityDao;
@@ -46,14 +46,14 @@ public class ActivityRepository implements IActivityRepository {
 
     @Override
     public GroupBuyActivityDiscountVO queryGroupBuyActivityDiscountVO(Long activityId) {
-        GroupBuyActivity groupBuyActivityRes = groupBuyActivityDao.queryValidGroupBuyActivityId(activityId);
-        if (null == groupBuyActivityRes) return null;
 
-        //根据活动对象的折扣来查询折扣id
+        GroupBuyActivity groupBuyActivityRes = getFromCacheOrDb( GroupBuyActivity.cacheRedisKey(activityId), () -> groupBuyActivityDao.queryValidGroupBuyActivityId(activityId));
+
+        if(groupBuyActivityRes==null) return null;
+
         String discountId = groupBuyActivityRes.getDiscountId();
 
-        GroupBuyDiscount groupBuyDiscountRes = groupBuyDiscountDao.queryGroupBuyActivityDiscountByDiscountId(discountId);
-        if (null == groupBuyDiscountRes) return null;
+        GroupBuyDiscount groupBuyDiscountRes = getFromCacheOrDb(GroupBuyDiscount.cacheRedisKey(discountId), () -> groupBuyDiscountDao.queryGroupBuyActivityDiscountByDiscountId(discountId));
 
         GroupBuyActivityDiscountVO.GroupBuyDiscount groupBuyDiscount = GroupBuyActivityDiscountVO.GroupBuyDiscount.builder()
                 .discountName(groupBuyDiscountRes.getDiscountName())
